@@ -27,9 +27,20 @@ namespace Vsite.CSharp
             return string.Format("{0} / {1}", Brojnik, Nazivnik);
         }
 
-        // TODO: dodati konstruktor pretvorbe (konverzije) koji stvara racionalni broj iz tipa double i u njemu treba samo pozvati metodu Raščlani. Otkomentirati naredbe u Main metodi koje pozivaju taj konstruktor.
-        public Racionalni(double broj): this() {
+        // dodati konstruktor pretvorbe (konverzije) koji stvara racionalni broj iz tipa double i u njemu treba samo pozvati metodu Raščlani. Otkomentirati naredbe u Main metodi koje pozivaju taj konstruktor.
+        public Racionalni(double broj): this()
+        {
            Raščlani(broj);
+        }
+
+        public static implicit operator Racionalni(double broj)
+        {
+            return new CSharp.Racionalni(broj);
+        }
+
+        public static implicit operator Racionalni(long broj)
+        {
+            return new CSharp.Racionalni(broj);
         }
 
         private void Raščlani(double broj)
